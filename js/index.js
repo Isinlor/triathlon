@@ -1,8 +1,10 @@
-var imageBG = new Image();
-    imageBG.src = $('.background').attr("src");
-//alert(imageBG.height+' '+$(window).width()+' '+imageBG.width +'/'+(imageBG.height*$(window).width())/imageBG.width);
-$('.background').height((imageBG.height*$(window).width())/imageBG.width);
-// realBgHeight = ($('.background').height()*$(window).width())/$('.background').height();
+$(document).ready(function () {
+ 	var imageBG = new Image();
+ 	imageBG.src = $('.background').attr("src");
+//	alert(imageBG.height+' '+$(window).width()+' '+imageBG.width +'/'+(imageBG.height*$(window).width())/imageBG.width);
+	$('.background').height(Math.round((imageBG.height*$(window).width())/imageBG.width));
+	ratio = countRatio();
+});
 
 $('section').css('margin-bottom', $(window).height()/1.4+'px');
 
