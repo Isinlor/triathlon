@@ -1,8 +1,10 @@
 $(document).ready(function () {
  	var imageBG = new Image();
  	imageBG.src = $('.background').attr("src");
-//	alert(imageBG.height+' '+$(window).width()+' '+imageBG.width +'/'+(imageBG.height*$(window).width())/imageBG.width);
-	$('.background').height(Math.round((imageBG.height*$(window).width())/imageBG.width));
+ 	i = $('.background').attr("src");
+
+	alert(imageBG.height+' '+$(window).width()+' '+imageBG.width +'/'+Math.round((imageBG.height*$(window).width())/imageBG.width));
+	$('.background').height(Math.round((700*$(window).width())/600));
 	ratio = countRatio();
 });
 
