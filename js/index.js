@@ -6,6 +6,10 @@ $(document).ready(function () {
 	alert(imageBG.height+' '+$(window).width()+' '+imageBG.width +'/'+Math.round((imageBG.height*$(window).width())/imageBG.width));
 	$('.background').height(Math.round((700*$(window).width())/600));
 	ratio = countRatio();
+
+	marginTop = $(window).height() - 2*parseInt($("section header").css('font-size')) - 110;
+	$('.container').css('margin-top', marginTop+'px');
+	ratio = countRatio();
 });
 
 $('section').css('margin-bottom', $(window).height()/1.4+'px');
