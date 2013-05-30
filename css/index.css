@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('BebasNeue-webfont.eot');
+    src: url('BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BebasNeue-webfont.woff') format('woff'),
+         url('BebasNeue-webfont.ttf') format('truetype'),
+         url('BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1, h2, h3, h4, h5, h6{
+  /*color: #fff;*/
+  font-family: 'Bebas Neue';
+  display:block;
+
+}
+footer{
+  font-size: 35px;
+  text-shadow: 1px 1px #000000;
+  color: #fff;
+  font-family: 'Bebas Neue';
+}
+.clearfix:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+section{
+    /*padding-bottom: 1900px;*/
+    color: #141414;
+    clear: both;
+    display: block;
+}
+    section header{
+        width: 33.33%;
+        line-height: 132px;
+        font-size: 132px;
+        color: #fff;
+            clear: both;
+              text-shadow: 1px 1px #000000;
+    }
+    section h2 {
+       color: #141414;
+       line-height: 35px;
+       font-size: 35px;
+       text-shadow: 0px 0px;
+    }
+    section > .right{
+        padding-top: 10px;
+        padding-left: 0.01333%;
+        font-size: 35px;
+        font-family: 'Bebas Neue';
+        width: 65.33%;
+    }
+
+nav{
+  background-color: #141414;
+  color: #fff;
+  position:fixed;
+  font-size: 35px;
+  font-family: 'Bebas Neue';
+  max-width: 1500px;
+  width: 82%;
+  height: 40px;
+  right: 0px;
+  bottom: 60px;
+}
+  nav a{
+    padding-top: 5px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    width: 16.666%;
+    min-width: 180px;
+  }
+  nav a:hover, nav a:active, nav .active{
+    background-color: #fff;
+    color: #141414;
+  }
+  nav li{
+    display: inline;
+    list-style-type: none;
+  }
+
+figure {
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  position: relative;
+  width: 100%;
+}
+iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.background{
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: -999;
+}
+
+.container{
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+    min-width: 960px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.left{
+    float: left;
+    text-align: right;
+}
+.right{
+    float: right;
+    text-align: left;
+}
