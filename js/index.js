@@ -14,7 +14,7 @@ function whenRady(){
 	$("section header").fitText(0.37, { minFontSize: '85px', maxFontSize: '132px' })
 
 	marginTop = $(window).height() - 2*parseInt($("section header").css('font-size')) - 110;
-	$('.container').css('margin-top', marginTop+'px');
+	$('.container').css('top', marginTop+'px');
 
 	ratio = countRatio();
 
@@ -22,7 +22,7 @@ function whenRady(){
  	imageBG.src = $('.background').attr("src");
  	i = $('.background').attr("src");
 
-	alert(imageBG.height+' '+$(window).width()+' '+imageBG.width +'/'+Math.round((imageBG.height*$(window).width())/imageBG.width));
+	//alert(imageBG.height+' '+$(window).width()+' '+imageBG.width +'/'+Math.round((imageBG.height*$(window).width())/imageBG.width));
 	$('.background').height(Math.round((700*$(window).width())/600));
 
 	ratio = countRatio();
@@ -32,7 +32,7 @@ function whenRady(){
 
 function resize(){
 	marginTop = $(window).height() - 2*parseInt($("section header").css('font-size')) - 110;
-	$('.container').css('margin-top', marginTop+'px');
+	$('.container').css('top', marginTop+'px');
 	ratio = countRatio();
 	parallaxScroll();
 }
