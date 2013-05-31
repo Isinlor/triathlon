@@ -1,6 +1,6 @@
 whenRady();
 
-//$(document).ready(whenRady());
+$(document).ready(whenRady());
 
 $(window).resize(resize());
 
@@ -22,7 +22,7 @@ function whenRady(){
  	imageBG.src = $('.background').attr("src");
  	i = $('.background').attr("src");
 
-	//alert(imageBG.height+' '+$(window).width()+' '+imageBG.width +'/'+Math.round((imageBG.height*$(window).width())/imageBG.width));
+	alert(imageBG.height+' '+$(window).width()+' '+imageBG.width +'/'+Math.round((imageBG.height*$(window).width())/imageBG.width));
 	$('.background').height(Math.round((700*$(window).width())/600));
 
 	ratio = countRatio();
@@ -39,7 +39,7 @@ function resize(){
 
 function parallaxScroll(){
     var scrolled = $(window).scrollTop();
-    //$('.test').text(scrolled +'/WH'+ $(window).height() +'/PH'+ $(document).height() +'/RBGH' + $('.background').height() +'/R' + ratio +'/BGM'+ scrolled*ratio);
+    $('.test').text(scrolled +'/WH'+ $(window).height() +'/PH'+ $(document).height() +'/RBGH' + $('.background').height() +'/R' + ratio +'/BGM'+ scrolled*ratio);
     $('.background').css('top', Math.round(scrolled*ratio)+'px');
 }
 // for element fixed
