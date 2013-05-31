@@ -36,6 +36,7 @@ function whenResize(){
 
 function parallaxScroll(){
     var scrolled = $(window).scrollTop();
+   	ratio = countRatio();
     $('.test').text(scrolled +'/WH'+ $(window).height() +'/PH'+ $(document).height() +'/RBGH' + $('.background').height() +'/R' + ratio +'/BGM'+ scrolled*ratio);
     $('.background').css('top', Math.round(scrolled*ratio)+'px');
 }
