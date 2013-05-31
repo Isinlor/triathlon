@@ -1,5 +1,7 @@
 whenRady();
 
+//$(document).ready(whenRady());
+
 $(window).resize(resize());
 
 $(window).bind('scroll',function(){
@@ -23,6 +25,9 @@ function whenRady(){
 	//alert(imageBG.height+' '+$(window).width()+' '+imageBG.width +'/'+Math.round((imageBG.height*$(window).width())/imageBG.width));
 	$('.background').height(Math.round((700*$(window).width())/600));
 
+	ratio = countRatio();
+
+	parallaxScroll();
 }
 
 function resize(){
@@ -41,3 +46,7 @@ function parallaxScroll(){
 function countRatio () {
 	return -( $('.background').height() - $(window).height()) / ( $(document).height() - $(window).height() );
 }
+// for element absolute
+// function countRatio () {
+// 	return ( $(document).height() - $('.background').height() ) / ( $(document).height() - $(window).height() );
+// }
