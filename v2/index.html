@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Triathlon Elbląg</title>
+	<meta charset="utf-8">
+	<link href="css/reset.css" rel="stylesheet" media="screen">
+	<link href="css/index.css" rel="stylesheet" media="screen">
+	<link href="css/ui-darkness/jquery-ui-1.8.12.custom.css" rel="stylesheet" media="screen">
+	<link href="css/jquery.videobackground.css" rel="stylesheet" media="screen">
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/jquery.videobackground.js"></script>
+	<script>
+	$(document).ready(function() {
+		$('dl').toggle();
+		$('h2').bind('click', function(event) {
+			event.preventDefault();
+			$(this).next('dl').slideToggle(500, function() {
+				$('.video-background').videobackground('resize');
+			});
+		});
+		$('body').prepend('<div class="video-background"></div>');
+		$('.video-background').videobackground({
+			videoSource: [
+							['video/Ironman320p.webm', 'video/webm'],
+							['video/Ironman320p.mp4', 'video/mp4'],
+						],
+			loop: true,
+			controlPosition: 'body',
+			poster: 'video/big-buck-bunny.jpg',
+			loadedCallback: function() {
+				//$(this).videobackground('mute');
+			}
+		});
+		$('section > .right').height($('.video-background').height() - 150);
+	});
+	</script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.animate-enhanced.min.js"></script>
+	<script src="js/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+	$(function() {
+		$('#slides').superslides({
+			hashchange: true,
+			inherit_width_from: '.container',
+			inherit_height_from: '.video-background'
+		});
+	});
+	</script>
+</head>
+<body>
+	<div id="slides" class="container">
+		<div class="slides-container">
+			<section id="1" class="clearfix">
+				<header class="left">
+					<h1>Triathlon<br>Elbląg</h1>
+					<!-- <h2 class="right">Jedź, płyń, biegnij!<br>Codziennie!</h2> -->
+				</header>
+		</section>
+		<section id="2" class="clearfix">
+			<header class="left"><h1>O nas</h1></header>
+			<div class="right">
+				<img src="img/DSC09522.JPG" width="100%">
+				<p>
+					Jesteśmy grupą ludzi z pasją. Kochamy to co robimy. Żyjemy tym co robimy. Musisz kochać ten sport by sprostać wyzwanią które przed Tobą stawia - wstawanie o 5 rano na basen, praca lub szkoła w ciągu dnia i kolejny trening po południu jest naszą codziennością. Triathlon wiele wymaga, ale jeszcze więcej daje, jest naszą drogą do samorozwoju - duchowego i cielesnego, a ponad wszytsko jest poprostu dobrą zabawą! Spróbuj i ty stać się człowiekiem z żelaza!
+				</p>
+			</div>
+		</section>
+
+		<section id="3" class="clearfix">
+			<header class="left"><h1>Bla bla bla 2</h1></header>
+			<div class="right">
+				Lorem ipsum dolor sit amet, sit sit nisl nonummy. Velit ac, consequat in quam, massa egestas sit id nibh duis fringilla, dui praesent augue, potenti sed porta adipiscing. Arcu integer, orci donec condimentum, maecenas integer odio, tempor sed, pharetra risus phasellus sit eros. Amet aliquet, lacus euismod leo ac amet porttitor vel, facilisis pede, elit ligula leo scelerisque dis. Erat ipsum turpis nulla tellus sit et, sunt pede tellus. Sem sed ante eget tincidunt, vehicula diam, lobortis orci quo tellus, quam fusce wisi sed leo nunc, varius volutpat lorem. Turpis elit nunc vestibulum molestias luctus mauris, nonummy nascetur wisi lorem quam lobortis vestibulum, enim vel ornare. Augue amet id eu faucibus, maecenas justo tortor commodo metus hendrerit ornare. Maecenas malesuada, lorem mauris arcu molestie suspendisse ante in, dignissim scelerisque, dolor consectetuer proin, sit nunc imperdiet vel condimentum. Sed maecenas elementum, pulvinar nibh massa sem voluptatem sed lectus, vestibulum natoque mauris massa est massa venenatis. Vestibulum voluptatem inceptos, scelerisque congue velit mauris.
+			</div>
+		</section>
+
+		<section id="4" class="clearfix">
+			<header class="left"><h1>Bla bla bla 3</h1></header>
+			<div class="right">
+				Lorem ipsum dolor sit amet, sit sit nisl nonummy. Velit ac, consequat in quam, massa egestas sit id nibh duis fringilla, dui praesent augue, potenti sed porta adipiscing. Arcu integer, orci donec condimentum, maecenas integer odio, tempor sed, pharetra risus phasellus sit eros. Amet aliquet, lacus euismod leo ac amet porttitor vel, facilisis pede, elit ligula leo scelerisque dis. Erat ipsum turpis nulla tellus sit et, sunt pede tellus. Sem sed ante eget tincidunt, vehicula diam, lobortis orci quo tellus, quam fusce wisi sed leo nunc, varius volutpat lorem. Turpis elit nunc vestibulum molestias luctus mauris, nonummy nascetur wisi lorem quam lobortis vestibulum, enim vel ornare. Augue amet id eu faucibus, maecenas justo tortor commodo metus hendrerit ornare. Maecenas malesuada, lorem mauris arcu molestie suspendisse ante in, dignissim scelerisque, dolor consectetuer proin, sit nunc imperdiet vel condimentum. Sed maecenas elementum, pulvinar nibh massa sem voluptatem sed lectus, vestibulum natoque mauris massa est massa venenatis. Vestibulum voluptatem inceptos, scelerisque congue velit mauris.Lorem ipsum dolor sit amet, sit sit nisl nonummy. Velit ac, consequat in quam, massa egestas sit id nibh duis fringilla, dui praesent augue, potenti sed porta adipiscing. Arcu integer, orci donec condimentum, maecenas integer odio, tempor sed, pharetra risus phasellus sit eros. Amet aliquet, lacus euismod leo ac amet porttitor vel, facilisis pede, elit ligula leo scelerisque dis. Erat ipsum turpis nulla tellus sit et, sunt pede tellus. Sem sed ante eget tincidunt, vehicula diam, lobortis orci quo tellus, quam fusce wisi sed leo nunc, varius volutpat lorem. Turpis elit nunc vestibulum molestias luctus mauris, nonummy nascetur wisi lorem quam lobortis vestibulum, enim vel ornare. Augue amet id eu faucibus, maecenas justo tortor commodo metus hendrerit ornare. Maecenas malesuada, lorem mauris arcu molestie suspendisse ante in, dignissim scelerisque, dolor consectetuer proin, sit nunc imperdiet vel condimentum. Sed maecenas elementum, pulvinar nibh massa sem voluptatem sed lectus, vestibulum natoque mauris massa est massa venenatis. Vestibulum voluptatem inceptos, scelerisque congue velit mauris.Lorem ipsum dolor sit amet, sit sit nisl nonummy. Velit ac, consequat in quam, massa egestas sit id nibh duis fringilla, dui praesent augue, potenti sed porta adipiscing. Arcu integer, orci donec condimentum, maecenas integer odio, tempor sed, pharetra risus phasellus sit eros. Amet aliquet, lacus euismod leo ac amet porttitor vel, facilisis pede, elit ligula leo scelerisque dis. Erat ipsum turpis nulla tellus sit et, sunt pede tellus. Sem sed ante eget tincidunt, vehicula diam, lobortis orci quo tellus, quam fusce wisi sed leo nunc, varius volutpat lorem. Turpis elit nunc vestibulum molestias luctus mauris, nonummy nascetur wisi lorem quam lobortis vestibulum, enim vel ornare. Augue amet id eu faucibus, maecenas justo tortor commodo metus hendrerit ornare. Maecenas malesuada, lorem mauris arcu molestie suspendisse ante in, dignissim scelerisque, dolor consectetuer proin, sit nunc imperdiet vel condimentum. Sed maecenas elementum, pulvinar nibh massa sem voluptatem sed lectus, vestibulum natoque mauris massa est massa venenatis. Vestibulum voluptatem inceptos, scelerisque congue velit mauris.Lorem ipsum dolor sit amet, sit sit nisl nonummy. Velit ac, consequat in quam, massa egestas sit id nibh duis fringilla, dui praesent augue, potenti sed porta adipiscing. Arcu integer, orci donec condimentum, maecenas integer odio, tempor sed, pharetra risus phasellus sit eros. Amet aliquet, lacus euismod leo ac amet porttitor vel, facilisis pede, elit ligula leo scelerisque dis. Erat ipsum turpis nulla tellus sit et, sunt pede tellus. Sem sed ante eget tincidunt, vehicula diam, lobortis orci quo tellus, quam fusce wisi sed leo nunc, varius volutpat lorem. Turpis elit nunc vestibulum molestias luctus mauris, nonummy nascetur wisi lorem quam lobortis vestibulum, enim vel ornare. Augue amet id eu faucibus, maecenas justo tortor commodo metus hendrerit ornare. Maecenas malesuada, lorem mauris arcu molestie suspendisse ante in, dignissim scelerisque, dolor consectetuer proin, sit nunc imperdiet vel condimentum. Sed maecenas elementum, pulvinar nibh massa sem voluptatem sed lectus, vestibulum natoque mauris massa est massa venenatis. Vestibulum voluptatem inceptos, scelerisque congue velit mauris.
+			</div>
+		</section>
+
+		<section id="5" class="clearfix">
+			<header class="left"><h1>Kontakt</h1></header>
+			<div class="right">
+				<table style="color: #fff; text-shadow: 1px 1px #000000;">
+					<tr style="height: 2em;">
+						<td colspan="2">Międzyszkolny Klub Sportowy “Truso” - Sekcja Triathlonu</td>
+					</tr>
+					<tr>
+						<td rowspan="3">Adres: </td><td>Elbląg</td>
+					</tr>
+					<tr>
+						<td>82-300</td>
+					</tr>
+					<tr style="height: 2em;">
+						<td>ul.Kościuszki 77A</td>
+					</tr>
+					<tr>
+						<td>Telefon: </td><td>055 237-06-65</td>
+					</tr>
+					<tr style="height: 2em;">
+						<td>E-mail:</td><td>mostruso@wp.pl</td>
+					</tr>
+					<tr>
+						<td>Prezes:</td><td>Stanisław Pernal</td>
+					</tr>
+					<tr>
+						<td>Kadra:</td><td>Krzysztof Sokołowski</td>
+					</tr>
+					<tr>
+						<td>Instruktorzy:</td><td>Bogusław Tołwiński</td>
+					</tr>		
+				</table>
+			</div>
+		</section>
+
+	</div>
+
+	<nav class="slides-navigation">
+		<a href="#" class="next"></a>
+		<a href="#" class="prev"></a>
+	</nav>
+	<nav class="slides-pagination">
+		<a></a>
+		<a href="#1" class="text">Triathlon</a>
+		<a href="#2" class="text">O nas</a>
+		<a href="#3" class="text">Osiągnięcia</a>
+		<a href="#4" class="text">Motywacja</a>
+		<a href="#5" class="text">Kontakt</a>
+		<div style="margin-top:0.7em; font-size:25px; text-align:right; margin-right: 30px; text-shadow: 1px 1px #000000;">Autor strony Tomasz Darmetko</div>
+	</nav>
+</div>
+<script src="js/jquery.fittext.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("section header").fitText(0.37, { minFontSize: '85px', maxFontSize: '132px' });
+});
+</script>
+</body>
+</html>
