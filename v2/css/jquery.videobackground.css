@@ -13,8 +13,9 @@
  */	
 .ui-video-background {
 	position: absolute;
-	bottom: 120px;
+	bottom: 61px;
 	right: 30px;
+	z-index:9999999;
 }
 .ui-video-background-controls {
 	margin: 0;
