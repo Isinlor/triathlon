@@ -7,9 +7,16 @@
 	<link href="css/index.css" rel="stylesheet" media="screen">
 	<link href="css/ui-darkness/jquery-ui-1.8.12.custom.css" rel="stylesheet" media="screen">
 	<link href="css/jquery.videobackground.css" rel="stylesheet" media="screen">
-	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery.nanoscroller.js"></script>
 	<script src="js/jquery.videobackground.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.animate-enhanced.min.js"></script>
+	<script src="js/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
 	<script>
+
+
+	
 	$(document).ready(function() {
 		$('dl').toggle();
 		$('h2').bind('click', function(event) {
@@ -28,24 +35,37 @@
 			controlPosition: 'body',
 			poster: 'img/error.jpg',
 			loadedCallback: function() {
-				//$(this).videobackground('mute');
+				$(this).videobackground('mute');
 			}
 		});
 		$('section > .right').height($('.video-background').height() - 150);
 	});
 	</script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<script src="js/jquery.animate-enhanced.min.js"></script>
-	<script src="js/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 	$(function() {
+
+		var scrollerReset = function() {
+			console.log('hay');
+			$(".nano").nanoScroller();
+		};
+
 		$('#slides').superslides({
 			hashchange: true,
 			inherit_width_from: '.container',
 			inherit_height_from: '.video-background'
-		});
+		}).on({'started.slides': scrollerReset,
+				'init.slides': scrollerReset,
+				'updated.slides': scrollerReset});
+
+      setTimeout(function() {
+      		scrollerReset();
+      		console.log('opuźnione');
+      	}, 1000);
+		$(".nano").nanoScroller();
+
 	});
 	</script>
+	
 </head>
 <body>
 	<div id="slides" class="container">
@@ -58,25 +78,32 @@
 		</section>
 		<section id="2" class="clearfix">
 			<header class="left"><h1>O nas</h1></header>
-			<div class="right">
+			<div class="right nano">
+				<div class="content">
 				<img src="img/DSC09522.JPG" width="100%">
 				<p>
-					Jesteśmy grupą ludzi z pasją. Kochamy to co robimy. Żyjemy tym co robimy. Musisz kochać ten sport by sprostać wyzwanią które przed Tobą stawia - wstawanie o 5 rano na basen, praca lub szkoła w ciągu dnia i kolejny trening po południu jest naszą codziennością. Triathlon wiele wymaga, ale jeszcze więcej daje, jest naszą drogą do samorozwoju - duchowego i cielesnego, a ponad wszytsko jest poprostu dobrą zabawą! Spróbuj i ty stać się człowiekiem z żelaza!
+					Jesteśmy grupą ludzi z pasją. Kochamy to co robimy. Żyjemy tym co robimy. Musisz kochać ten sport by sprostać wyzwaniom które przed Tobą stawia - wstawanie o 5 rano na basen, praca lub szkoła w ciągu dnia i kolejny trening po południu jest naszą codziennością. Triathlon wiele wymaga, ale jeszcze więcej daje, to droga do samorozwoju nie tylko cielesnego, ale również duchowego, a ponad wszystko to po prostu dobra zabawa! Spróbuj i ty stać się człowiekiem z żelaza!
 				</p>
+				</div>
 			</div>
 		</section>
 
 		<section id="3" class="clearfix">
-			<header class="left"><h1>Bla bla bla 2</h1></header>
-			<div class="right">
-				Lorem ipsum dolor sit amet, sit sit nisl nonummy. Velit ac, consequat in quam, massa egestas sit id nibh duis fringilla, dui praesent augue, potenti sed porta adipiscing. Arcu integer, orci donec condimentum, maecenas integer odio, tempor sed, pharetra risus phasellus sit eros. Amet aliquet, lacus euismod leo ac amet porttitor vel, facilisis pede, elit ligula leo scelerisque dis. Erat ipsum turpis nulla tellus sit et, sunt pede tellus. Sem sed ante eget tincidunt, vehicula diam, lobortis orci quo tellus, quam fusce wisi sed leo nunc, varius volutpat lorem. Turpis elit nunc vestibulum molestias luctus mauris, nonummy nascetur wisi lorem quam lobortis vestibulum, enim vel ornare. Augue amet id eu faucibus, maecenas justo tortor commodo metus hendrerit ornare. Maecenas malesuada, lorem mauris arcu molestie suspendisse ante in, dignissim scelerisque, dolor consectetuer proin, sit nunc imperdiet vel condimentum. Sed maecenas elementum, pulvinar nibh massa sem voluptatem sed lectus, vestibulum natoque mauris massa est massa venenatis. Vestibulum voluptatem inceptos, scelerisque congue velit mauris.
-			</div>
+			<header class="left"><h1>Newsy</h1></header>
+			<div class="right nano">
+				<div class="content">
+			</div></div>
 		</section>
 
 		<section id="4" class="clearfix">
-			<header class="left"><h1>Bla bla bla 3</h1></header>
-			<div class="right">
-				Lorem ipsum dolor sit amet, sit sit nisl nonummy. Velit ac, consequat in quam, massa egestas sit id nibh duis fringilla, dui praesent augue, potenti sed porta adipiscing. Arcu integer, orci donec condimentum, maecenas integer odio, tempor sed, pharetra risus phasellus sit eros. Amet aliquet, lacus euismod leo ac amet porttitor vel, facilisis pede, elit ligula leo scelerisque dis. Erat ipsum turpis nulla tellus sit et, sunt pede tellus. Sem sed ante eget tincidunt, vehicula diam, lobortis orci quo tellus, quam fusce wisi sed leo nunc, varius volutpat lorem. Turpis elit nunc vestibulum molestias luctus mauris, nonummy nascetur wisi lorem quam lobortis vestibulum, enim vel ornare. Augue amet id eu faucibus, maecenas justo tortor commodo metus hendrerit ornare. Maecenas malesuada, lorem mauris arcu molestie suspendisse ante in, dignissim scelerisque, dolor consectetuer proin, sit nunc imperdiet vel condimentum. Sed maecenas elementum, pulvinar nibh massa sem voluptatem sed lectus, vestibulum natoque mauris massa est massa venenatis. Vestibulum voluptatem inceptos, scelerisque congue velit mauris.Lorem ipsum dolor sit amet, sit sit nisl nonummy. Velit ac, consequat in quam, massa egestas sit id nibh duis fringilla, dui praesent augue, potenti sed porta adipiscing. Arcu integer, orci donec condimentum, maecenas integer odio, tempor sed, pharetra risus phasellus sit eros. Amet aliquet, lacus euismod leo ac amet porttitor vel, facilisis pede, elit ligula leo scelerisque dis. Erat ipsum turpis nulla tellus sit et, sunt pede tellus. Sem sed ante eget tincidunt, vehicula diam, lobortis orci quo tellus, quam fusce wisi sed leo nunc, varius volutpat lorem. Turpis elit nunc vestibulum molestias luctus mauris, nonummy nascetur wisi lorem quam lobortis vestibulum, enim vel ornare. Augue amet id eu faucibus, maecenas justo tortor commodo metus hendrerit ornare. Maecenas malesuada, lorem mauris arcu molestie suspendisse ante in, dignissim scelerisque, dolor consectetuer proin, sit nunc imperdiet vel condimentum. Sed maecenas elementum, pulvinar nibh massa sem voluptatem sed lectus, vestibulum natoque mauris massa est massa venenatis. Vestibulum voluptatem inceptos, scelerisque congue velit mauris.Lorem ipsum dolor sit amet, sit sit nisl nonummy. Velit ac, consequat in quam, massa egestas sit id nibh duis fringilla, dui praesent augue, potenti sed porta adipiscing. Arcu integer, orci donec condimentum, maecenas integer odio, tempor sed, pharetra risus phasellus sit eros. Amet aliquet, lacus euismod leo ac amet porttitor vel, facilisis pede, elit ligula leo scelerisque dis. Erat ipsum turpis nulla tellus sit et, sunt pede tellus. Sem sed ante eget tincidunt, vehicula diam, lobortis orci quo tellus, quam fusce wisi sed leo nunc, varius volutpat lorem. Turpis elit nunc vestibulum molestias luctus mauris, nonummy nascetur wisi lorem quam lobortis vestibulum, enim vel ornare. Augue amet id eu faucibus, maecenas justo tortor commodo metus hendrerit ornare. Maecenas malesuada, lorem mauris arcu molestie suspendisse ante in, dignissim scelerisque, dolor consectetuer proin, sit nunc imperdiet vel condimentum. Sed maecenas elementum, pulvinar nibh massa sem voluptatem sed lectus, vestibulum natoque mauris massa est massa venenatis. Vestibulum voluptatem inceptos, scelerisque congue velit mauris.Lorem ipsum dolor sit amet, sit sit nisl nonummy. Velit ac, consequat in quam, massa egestas sit id nibh duis fringilla, dui praesent augue, potenti sed porta adipiscing. Arcu integer, orci donec condimentum, maecenas integer odio, tempor sed, pharetra risus phasellus sit eros. Amet aliquet, lacus euismod leo ac amet porttitor vel, facilisis pede, elit ligula leo scelerisque dis. Erat ipsum turpis nulla tellus sit et, sunt pede tellus. Sem sed ante eget tincidunt, vehicula diam, lobortis orci quo tellus, quam fusce wisi sed leo nunc, varius volutpat lorem. Turpis elit nunc vestibulum molestias luctus mauris, nonummy nascetur wisi lorem quam lobortis vestibulum, enim vel ornare. Augue amet id eu faucibus, maecenas justo tortor commodo metus hendrerit ornare. Maecenas malesuada, lorem mauris arcu molestie suspendisse ante in, dignissim scelerisque, dolor consectetuer proin, sit nunc imperdiet vel condimentum. Sed maecenas elementum, pulvinar nibh massa sem voluptatem sed lectus, vestibulum natoque mauris massa est massa venenatis. Vestibulum voluptatem inceptos, scelerisque congue velit mauris.
+			<header class="left"><h1>Motywacja</h1></header>
+			<div class="right nano">
+				<div class="content">
+				(Wskazówka: Wideo w tle możesz wyłączyć w lewym dolnym rogu.)
+				<figure><iframe src="http://www.youtube.com/embed/WFMyoOH46C8" frameborder="0" allowfullscreen></iframe></figure>
+				<br>
+				<figure><iframe src="http://www.youtube.com/embed/TFWDUsvLCoE" frameborder="0" allowfullscreen></iframe></figure>
+				</div>
 			</div>
 		</section>
 
@@ -112,6 +139,8 @@
 						<td>Instruktorzy:</td><td>Bogusław Tołwiński</td>
 					</tr>		
 				</table>
+				<footer style="margin-top:3em;" ><span class="right">Montaż wideo guitargrasshopper<br>Muzyka Immediate Music- Serenata Immortale<br>Autorstwo World Triathlon Corporation</span>
+				Autor storny<br>Tomasz Darmetko<br><br><br><img src="img/logo2.png"></footer>
 			</div>
 		</section>
 
@@ -125,7 +154,7 @@
 		<a></a>
 		<a href="#1" class="text">Triathlon</a>
 		<a href="#2" class="text">O nas</a>
-		<a href="#3" class="text">Osiągnięcia</a>
+		<a href="#3" class="text">Newsy</a>
 		<a href="#4" class="text">Motywacja</a>
 		<a href="#5" class="text">Kontakt</a>
 		<div style="margin-top:0.7em; font-size:25px; text-align:right; margin-right: 30px; text-shadow: 1px 1px #000000;">Autor strony Tomasz Darmetko</div>
@@ -134,8 +163,61 @@
 <script src="js/jquery.fittext.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$("section header").fitText(0.37, { minFontSize: '85px', maxFontSize: '132px' });
+	$("section header").fitText(0.37, {minContainerSize: '320px', maxContainerSize: '500px', minFontSize: '65px', maxFontSize: '135px' });
 });
 </script>
+<script>
+    function feedFunc(varible){
+        entries = varible.responseData.feed.entries;
+        
+    for (var i = 0; i < entries.length; i++) {
+    
+        entrie = entries[i];
+    
+        show = false;
+    
+        if(check(entrie, /tri/i)){
+            show = true;
+        }
+        if(check(entrie, /enduro/i)){
+            show = true;
+        }
+        if(check(entrie, /aquathlon/i)){
+            show = true;
+        }
+        if(check(entrie, /duathlon/i)){
+            show = true;
+        }
+        count = 0;
+        if(check(entrie, /bieg/i)){
+            count++;
+        }
+        if(check(entrie, /rower/i)){
+            count++;
+        }
+        if(check(entrie, /pływa/i)){
+            count++;
+        }
+        if(count > 1){
+            show = true;
+        }
+        if(show){
+            data = new Date(entrie.publishedDate.replace("-0700","+0100")).toISOString().slice(0, 10);
+
+            $('#3 .content').append('<p style="margin-bottom:2em; font-size:30px;">'+entrie.content + ' <a href="'+entrie.link+'"> - Czytaj dalej...</a><small style="font-size:20px; line-height:20px; display:block; text-align:right;">Żródło: '+entrie.author+'<br>Data: '+data+'</small></p>');
+        }
+    
+    }
+    function check(entrie, regexp){
+        if ( entrie.title.match(regexp) || entrie.content.match(regexp) ){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    };
+</script>
+<script src="http://json2jsonp.com/?callback=feedFunc&url=http%3A%2F%2Fajax.googleapis.com%2Fajax%2Fservices%2Ffeed%2Fload%3Fv%3D2.0%26num%3D20%26q%3Dhttp%3A%2F%2Fwww.mostruso.pl%2Frss%2Fall"></script>
 </body>
 </html>

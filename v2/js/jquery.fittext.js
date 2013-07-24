@@ -11,13 +11,15 @@
 
 (function( $ ){
 
-  $.fn.fitText = function( kompressor, options ) {
+  $.fn.fitText = function(kompressor, options) {
 
     // Setup options
     var compressor = kompressor || 1,
         settings = $.extend({
           'minFontSize' : Number.NEGATIVE_INFINITY,
-          'maxFontSize' : Number.POSITIVE_INFINITY
+          'minContainerSize' : Number.NEGATIVE_INFINITY,
+          'maxFontSize' : Number.POSITIVE_INFINITY,
+          'maxContainerSize' : Number.POSITIVE_INFINITY
         }, options);
 
     return this.each(function(){
@@ -27,14 +29,33 @@
 
       // Resizer() resizes items based on the object width divided by the compressor * 10
       var resizer = function () {
+        setTimeout(function() {
         thisProcent = $this.width()/100;
         thisWidth = thisProcent*$('.container').width();
         if(thisProcent > 1){
           thisWidth = $this.width();
         }
         console.log(thisWidth +' - width correct');
-        $this.css('font-size', Math.max(Math.min(thisWidth / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)));
-        $this.css('line-height', Math.max(Math.min(thisWidth / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize))+'px');
+
+        //fontSize = parseFloat(settings.maxFontSize) - (parseFloat(settings.minFontSize)*(parseFloat(settings.maxContainerSize) - thisWidth))/parseFloat(settings.minContainerSize);
+        dC = parseFloat(settings.maxContainerSize)-parseFloat(settings.minContainerSize);
+        console.log(dC +' -dC');
+        dF = parseFloat(settings.maxFontSize)-parseFloat(settings.minFontSize);
+        console.log(dF +' -dF');
+        dCNow = parseFloat(settings.maxContainerSize) - thisWidth;
+        console.log(dCNow +' -dCNow');
+        console.log((dCNow/dC)*(dCNow/dC) +'wskaźnik');
+        console.log(Math.sqrt((dCNow/dC)) +'wskaźnik2');
+
+        indic = Math.sqrt((dCNow/dC));
+
+        fontSize = parseFloat(settings.maxFontSize) - indic*(dF);
+
+        console.log(fontSize +' -fontsize');
+
+        $this.css('font-size', Math.max(Math.min(fontSize, parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)));
+        $this.css('line-height', Math.max(Math.min(fontSize, parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize))+'px');
+        }, 200);
       };
 
       // Call once to set.
