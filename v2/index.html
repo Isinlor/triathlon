@@ -17,7 +17,15 @@
 	
 	$(document).ready(function() {
 		console.time('load');
-		$('body').prepend('<div class="loading">Trwa ładowanie wideo...</div>');
+		$('body').prepend('<div class="loading">Trwa ładowanie wideo</div>');
+		function loading () {
+			setTimeout(function() {
+				$('.loading').append('.');
+				if(window.loaded == false){
+					loading();
+				}
+      		}, 500);
+		}
 		$('body').prepend('<div class="video-background"></div>');
 		$('.video-background').videobackground({
 			videoSource: [
@@ -29,8 +37,7 @@
 			controlPosition: 'body',
 			poster: 'img/poster.jpg',
 			loadedCallback: function() {
-				$('.loading').hide();
-				console.timeEnd('load');
+
 			}
 		});
 		$('section > .right').height($('.video-background').height() - 150);
@@ -41,9 +48,20 @@
 			$('body').prepend('<img src="img/poster.jpg" id="bg"/>');
 			setTimeout(function() {
       			$('.loading').fadeToggle(3000);
-      	}, 5000); 
-
+      		}, 5000);
 		});
+
+		$('video').bind('progress', function() {
+			$('.loading').append('.');
+		});
+
+		$('video').bind('canplay', function() {
+			console.log('canplay');
+			$('.loading').hide();
+			window.loaded = true;
+			console.timeEnd('load');
+		});
+
 	});
 	</script>
 	<script>
