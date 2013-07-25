@@ -16,7 +16,7 @@
 	<script>
 	
 	$(document).ready(function() {
-		console.time('load');
+		// console.time('load');
 		$('body').prepend('<div class="loading">Trwa ładowanie wideo.</div>');
 		window.loaded = false;
 		window.loadingCount = 0;
@@ -55,7 +55,7 @@
 		$('section > .right').height($('.video-background').height() - 150);
 
 		$('source:last').bind('error', function() {
-			console.timeEnd('load');
+			// console.timeEnd('load');
 			window.loaded = true;
 			$('.loading').html('Ładowanie wideo nie powiodło się');
 			$('body').prepend('<img src="img/poster.jpg" id="bg"/>');
@@ -69,10 +69,10 @@
 		});
 
 		$('video').bind('canplay', function() {
-			console.log('canplay');
+			//console.log('canplay');
 			$('.loading').fadeOut(500);
 			window.loaded = true;
-			console.timeEnd('load');
+			//console.timeEnd('load');
 		});
 
 	});
@@ -94,7 +94,7 @@
 
       setTimeout(function() {
       		scrollerReset();
-      		console.log('opuźnione');
+      		//console.log('opuźnione');
       	}, 1000);
 		$(".nano").nanoScroller();
 

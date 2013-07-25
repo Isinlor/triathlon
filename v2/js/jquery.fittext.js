@@ -35,7 +35,6 @@
         if(thisProcent > 1){
           thisWidth = $this.width();
         }
-        console.log(thisWidth +' - width correct');
 
         //fontSize = parseFloat(settings.maxFontSize) - (parseFloat(settings.minFontSize)*(parseFloat(settings.maxContainerSize) - thisWidth))/parseFloat(settings.minContainerSize);
         dC = parseFloat(settings.maxContainerSize)-parseFloat(settings.minContainerSize);
