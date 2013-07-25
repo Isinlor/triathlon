@@ -14,11 +14,10 @@
 	<script src="js/jquery.animate-enhanced.min.js"></script>
 	<script src="js/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
 	<script>
-
-
 	
 	$(document).ready(function() {
 		console.time('load');
+		$('body').prepend('<div class="loading">Trwa ładowanie wideo...</div>');
 		$('body').prepend('<div class="video-background"></div>');
 		$('.video-background').videobackground({
 			videoSource: [
@@ -30,10 +29,21 @@
 			controlPosition: 'body',
 			poster: 'img/poster.jpg',
 			loadedCallback: function() {
+				$('.loading').hide();
 				console.timeEnd('load');
 			}
 		});
 		$('section > .right').height($('.video-background').height() - 150);
+
+		$('source:last').bind('error', function() {
+			console.timeEnd('load'); 
+			$('.loading').html('Ładowanie wideo nie powiodło się');
+			$('body').prepend('<img src="img/poster.jpg" id="bg"/>');
+			setTimeout(function() {
+      			$('.loading').fadeToggle(3000);
+      	}, 5000); 
+
+		});
 	});
 	</script>
 	<script>
@@ -103,7 +113,8 @@
 
 		<section id="5" class="clearfix">
 			<header class="left"><h1>Kontakt</h1></header>
-			<div class="right">
+			<div class="right nano">
+				<div class="content">
 				<table style="color: #fff; text-shadow: 1px 1px #000000;">
 					<tr style="height: 2em;">
 						<td colspan="2">Międzyszkolny Klub Sportowy “Truso” - Sekcja Triathlonu</td>
@@ -134,7 +145,8 @@
 					</tr>		
 				</table>
 				<footer style="margin-top:3em;" ><span class="right">Montaż wideo guitargrasshopper<br>Muzyka Immediate Music- Serenata Immortale<br>Autorstwo World Triathlon Corporation</span>
-				Autor storny<br>Tomasz Darmetko<br><br><br><img src="img/logo2.png"></footer>
+				Autor storny<br>Tomasz Darmetko<br><br><br><a href="http://exegi.pl"><img src="img/logo2.png"></a></footer>
+			</div>
 			</div>
 		</section>
 

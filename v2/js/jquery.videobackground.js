@@ -201,7 +201,7 @@
 						if (that.settings.loop) {
 							attributes = attributes + ' loop="loop"';
 						}
-						$(that).html('<video ' + attributes + '>' + compiledSource + ' Nie mogę załadować video.</video>');
+						$(that).html('<video ' + attributes + '>' + compiledSource + '</video>');
 						/*
 						 * Append the control box either to the supplied that or the video background that.	
 						 *
