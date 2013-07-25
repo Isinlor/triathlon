@@ -17,15 +17,17 @@
 	
 	$(document).ready(function() {
 		console.time('load');
-		$('body').prepend('<div class="loading">Trwa ładowanie wideo</div>');
+		$('body').prepend('<div class="loading">Trwa ładowanie wideo.</div>');
+		window.loaded = false;
 		function loading () {
 			setTimeout(function() {
 				$('.loading').append('.');
 				if(window.loaded == false){
 					loading();
 				}
-      		}, 500);
+      		}, 1500);
 		}
+		loading();
 		$('body').prepend('<div class="video-background"></div>');
 		$('.video-background').videobackground({
 			videoSource: [
@@ -43,11 +45,12 @@
 		$('section > .right').height($('.video-background').height() - 150);
 
 		$('source:last').bind('error', function() {
-			console.timeEnd('load'); 
+			console.timeEnd('load');
+			window.loaded = true;
 			$('.loading').html('Ładowanie wideo nie powiodło się');
 			$('body').prepend('<img src="img/poster.jpg" id="bg"/>');
 			setTimeout(function() {
-      			$('.loading').fadeToggle(3000);
+      			$('.loading').fadeOut(3000);
       		}, 5000);
 		});
 
@@ -57,7 +60,7 @@
 
 		$('video').bind('canplay', function() {
 			console.log('canplay');
-			$('.loading').hide();
+			$('.loading').fadeOut(500);
 			window.loaded = true;
 			console.timeEnd('load');
 		});
