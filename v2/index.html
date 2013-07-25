@@ -18,17 +18,19 @@
 
 	
 	$(document).ready(function() {
+		console.time('load');
 		$('body').prepend('<div class="video-background"></div>');
 		$('.video-background').videobackground({
 			videoSource: [
 							['video/Ironman320p.webm', 'video/webm'],
 							['video/Ironman320p.mp4', 'video/mp4'],
+							['video/Ironman320pIE.mp4', 'video/mp4']
 						],
 			loop: true,
 			controlPosition: 'body',
-			poster: 'img/error.jpg',
+			poster: 'img/poster.jpg',
 			loadedCallback: function() {
-				//$(this).videobackground('mute');
+				console.timeEnd('load');
 			}
 		});
 		$('section > .right').height($('.video-background').height() - 150);
@@ -38,7 +40,6 @@
 	$(function() {
 
 		var scrollerReset = function() {
-			console.log('hay');
 			$(".nano").nanoScroller();
 		};
 

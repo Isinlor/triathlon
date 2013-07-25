@@ -39,19 +39,19 @@
 
         //fontSize = parseFloat(settings.maxFontSize) - (parseFloat(settings.minFontSize)*(parseFloat(settings.maxContainerSize) - thisWidth))/parseFloat(settings.minContainerSize);
         dC = parseFloat(settings.maxContainerSize)-parseFloat(settings.minContainerSize);
-        console.log(dC +' -dC');
+        // console.log(dC +' -dC');
         dF = parseFloat(settings.maxFontSize)-parseFloat(settings.minFontSize);
-        console.log(dF +' -dF');
+        // console.log(dF +' -dF');
         dCNow = parseFloat(settings.maxContainerSize) - thisWidth;
-        console.log(dCNow +' -dCNow');
-        console.log((dCNow/dC)*(dCNow/dC) +'wskaźnik');
-        console.log(Math.sqrt((dCNow/dC)) +'wskaźnik2');
+        // console.log(dCNow +' -dCNow');
+        // console.log((dCNow/dC)*(dCNow/dC) +'wskaźnik');
+        // console.log(Math.sqrt((dCNow/dC)) +'wskaźnik2');
 
         indic = Math.sqrt((dCNow/dC));
 
         fontSize = parseFloat(settings.maxFontSize) - indic*(dF);
 
-        console.log(fontSize +' -fontsize');
+        // console.log(fontSize +' -fontsize');
 
         $this.css('font-size', Math.max(Math.min(fontSize, parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)));
         $this.css('line-height', Math.max(Math.min(fontSize, parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize))+'px');
