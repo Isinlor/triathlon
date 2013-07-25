@@ -19,11 +19,21 @@
 		console.time('load');
 		$('body').prepend('<div class="loading">Trwa ładowanie wideo.</div>');
 		window.loaded = false;
+		window.loadingCount = 0;
 		function loading () {
 			setTimeout(function() {
+				window.loadingCount++;
 				$('.loading').append('.');
 				if(window.loaded == false){
-					loading();
+					if(window.loadingCount > 10){
+						$('.loading').html('Ładowanie wideo przedłuża się ... ');
+						setTimeout(function() {
+      						$('.loading').fadeOut(3000);
+      					}, 5000);
+						window.loaded = true;
+					} else {
+						loading();
+					}
 				}
       		}, 1500);
 		}
