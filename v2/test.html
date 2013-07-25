@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="youtube-video.js"></script>
+    <script type="text/javascript">
+      var youtubeId = "jv2aI46F07M";
+      YoutubeVideo(youtubeId, function(video){
+        console.log(video.title);
+        var webm = video.getSource("video/webm", "medium");
+        console.log("WebM: " + webm.url);
+        var mp4 = video.getSource("video/mp4", "medium");
+        console.log("MP4: " + mp4.url);
+
+        $("<video controls='controls'/>").attr("src", webm.url).appendTo("body");
+      });
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
