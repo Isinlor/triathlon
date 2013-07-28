@@ -9,6 +9,120 @@
     font-style: normal;
 
 }
+body{
+  background-color: #000;
+}
+#slides {
+  position: relative;
+}
+#slides .slides-container {
+  display: none;
+}
+#slides .scrollable {
+  *zoom: 1;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+}
+#slides .scrollable:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.slides-navigation {
+  position: fixed;
+  display: block;
+  z-index: 9999;
+  top: 45%;
+  left: 0px;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+a:focus{
+  outline-style: none;
+}
+/* Custom navigation arrows */
+
+.slides-navigation a {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 8px solid #ddd;
+  border: 8px solid rgba(150,150,150,0.4);
+  margin-top: -40px;
+  cursor: pointer;
+  
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.slides-navigation a:hover {
+  border-color: rgba(150,150,150,0.9);
+}
+
+.slides-navigation a.prev {
+  left: 50px;
+  border-right: none;
+  border-top: none;
+}
+
+.slides-navigation a.next {
+  right: 50px;
+  border-left: none;
+  border-bottom: none;
+}
+
+
+
+
+.slides-pagination{
+  background-color: #141414;
+  color: #fff;
+  position:fixed;
+  z-index: 2000;
+  font-size: 35px;
+  font-family: 'Bebas Neue';
+  max-width: 1500px;
+  width: 82%;
+  height: 40px;
+  right: 0px;
+  bottom: 60px;
+}
+  .slides-pagination a{
+    padding-top: 5px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    width: 16.666%;
+    min-width: 180px;
+  }
+  .slides-pagination .text{
+    display: none;
+  }
+  .slides-pagination a:hover, .slides-pagination a:active, .slides-pagination .current{
+    background-color: #fff;
+    color: #141414;
+  }
+.container{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+    min-width: 960px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 h1, h2, h3, h4, h5, h6{
   /*color: #fff;*/
@@ -21,7 +135,6 @@ footer{
   text-shadow: 1px 1px #000000;
   color: #fff;
   font-family: 'Bebas Neue';
-  padding-bottom: 200px;
 }
 .clearfix:after { 
    content: "."; 
@@ -31,13 +144,14 @@ footer{
    clear: both;
 }
 section{
-    /*padding-bottom: 1900px;*/
+/*    width: 100%;*/
     color: #141414;
-    clear: both;
     display: block;
+    bottom: 120px;
+    position: absolute;
 }
     section header{
-        width: 33.33%;
+        width: 32.8%;
         line-height: 132px;
         font-size: 132px;
         color: #fff;
@@ -52,43 +166,83 @@ section{
     }
     section > .right{
         padding-top: 10px;
-        padding-left: 0.01333%;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
         font-size: 35px;
         font-family: 'Bebas Neue';
-        width: 65.33%;
+        color: #fff;
+        text-shadow: 1px 1px #000000;
+        width: 65%;
+        overflow-y: auto;
+        background-color: rgba(5,5,5,0.7);
+    }
+    section > .right strong{
+        font-size: 45px;
+        font-family: 'Bebas Neue';
+        color: #fff;
+        text-shadow: 1px 1px #000000;
     }
 
-nav{
-  background-color: #141414;
-  color: #fff;
-  position:fixed;
-  font-size: 35px;
-  font-family: 'Bebas Neue';
-  max-width: 1500px;
-  width: 82%;
-  height: 40px;
-  right: 0px;
-  bottom: 60px;
-}
-  nav a{
-    padding-top: 5px;
-    color: #fff;
-    text-decoration: none;
-    text-align: center;
-    display: inline-block;
-    width: 16.666%;
-    min-width: 180px;
-  }
-  nav a:hover, nav a:active, nav .active{
-    background-color: #fff;
-    color: #141414;
-  }
-  nav li{
-    display: inline;
-    list-style-type: none;
-  }
+    section > .right a{
+        color: #fff;
+        text-shadow: 1px 1px #000;
+    }
+    section > .right a:hover, section > .right a:active{
+        color: #fff;
+        text-shadow: 2px 2px #000;
+        text-decoration: underline;
+    }
 
-figure {
+.left{
+    float: left;
+    text-align: right;
+}
+.right{
+    float: right;
+    text-align: left;
+}
+.loading{
+  padding-top: 5px;
+  color: #fff;
+  font-size: 45px;
+  font-family: 'Bebas Neue';
+  width:300px;
+  height: 90px;
+  display: block;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(5,5,5,0.7);
+  z-index: 999;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #fff;
+}
+#bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  /*height: 100%;*/
+  z-index: 0;
+}
+      .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        width: 100%;
+        /*height: 100%;*/
+        z-index: 0;
+      }
+      .video-background video {
+        /*min-height: 100%;*/ 
+        min-width:100%; 
+      }
+      figure {
   height: 0;
   padding-bottom: 56.25%; /* 16:9 */
   position: relative;
@@ -102,28 +256,63 @@ iframe {
   width: 100%;
 }
 
-.background{
-  position: fixed;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  z-index: -999;
+/** initial setup **/
+.nano {
+  position : relative;
+  width    : 100%;
+  height   : 100%;
+  overflow : hidden;
+}
+.nano .content {
+  position      : absolute;
+  overflow      : scroll;
+  overflow-x    : hidden;
+  top           : 0;
+  right         : 0;
+  bottom        : 0;
+  left          : 0;
+          padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
 }
 
-.container{
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1500px;
-    min-width: 960px;
-    padding-left: 10px;
-    padding-right: 10px;
+.nano .content:focus {
+  outline: thin dotted;
 }
-.left{
-    float: left;
-    text-align: right;
+.nano .content::-webkit-scrollbar {
+  visibility: hidden;
 }
-.right{
-    float: right;
-    text-align: left;
+.has-scrollbar .content::-webkit-scrollbar {
+  visibility: visible;
+}
+.nano > .pane {
+  background : rgba(255,255,255,.35);
+  position   : absolute;
+  width      : 10px;
+  right      : 0;
+  top        : 0;
+  bottom     : 0;
+  visibility : hidden\9; /* Target only IE7 and IE8 with this hack */
+  opacity    : .01; 
+  -webkit-transition    : .2s;
+  -moz-transition       : .2s;
+  -o-transition         : .2s;
+  transition            : .2s;
+  -moz-border-radius    : 5px;
+  -webkit-border-radius : 5px;  
+  border-radius         : 5px;
+}
+.nano > .pane > .slider {
+  background: #444;
+  background: rgba(0,0,0,.7);
+  position              : relative;
+  margin                : 0 1px;
+  -moz-border-radius    : 3px;
+  -webkit-border-radius : 3px;  
+  border-radius         : 3px;
+}
+.nano:hover > .pane, .pane.active, .pane.flashed {
+  visibility : visible\9; /* Target only IE7 and IE8 with this hack */
+  opacity    : 0.99;
 }

@@ -53,6 +53,10 @@
 			}
 		});
 		$('section > .right').height($('.video-background').height() - 150);
+		$(window).resize(function () {
+			$('section > .right').height($('.video-background').height() - 150);
+			$('.slides-container').height($('.video-background').height());
+		});
 
 		$('source:last').bind('error', function() {
 			// console.timeEnd('load');
